@@ -1,0 +1,42 @@
+---
+layout: layouts/base.njk
+---
+<article>
+  <p><a href="/">← Главная</a></p>
+  <h1>{{ title }}</h1>
+  <p class="summary">{{ summary }}</p>
+
+  <dl>
+    <dt>Классы</dt>
+    <dd>{{ grade_min }}–{{ grade_max }}</dd>
+    <dt>Формат</dt>
+    <dd>{{ format }}</dd>
+    {% if place %}<dt>Место</dt><dd>{{ place }}</dd>{% endif %}
+    <dt>Набор</dt>
+    <dd>{{ enrollment_status }}</dd>
+  </dl>
+
+  {% if schedule %}
+    <h2>Расписание</h2>
+    <ul>
+      {% for item in schedule %}
+        <li><strong>{{ item.group }}</strong> — {{ item.time }}{% if item.status %} — {{ item.status }}{% endif %}</li>
+      {% endfor %}
+    </ul>
+  {% endif %}
+
+  {{ content | safe }}
+
+  {% if instructors %}
+    <h2>Преподаватели</h2>
+    <ul>
+      {% for person in instructors %}
+        <li>{{ person.name }}{% if person.note %} — {{ person.note }}{% endif %}</li>
+      {% endfor %}
+    </ul>
+  {% endif %}
+
+  {% if price %}<h2>Стоимость</h2><p>{{ price }}</p>{% endif %}
+
+  {% if registration_url %}<p class="primary-action"><a href="{{ registration_url }}">Записаться</a></p>{% endif %}
+</article>

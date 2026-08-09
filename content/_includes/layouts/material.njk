@@ -1,0 +1,19 @@
+---
+layout: layouts/base.njk
+---
+<article>
+  <p><a href="/materials/">← Все материалы</a></p>
+  <h1>{{ title }}</h1>
+  <p class="summary">{{ summary }}</p>
+
+  <dl>
+    <dt>Раздел</dt>
+    <dd>{{ section }}</dd>
+    <dt>Классы</dt>
+    <dd>{{ grades | join(", ") }}</dd>
+    <dt>Теги</dt>
+    <dd>{{ tags | join(", ") }}</dd>
+  </dl>
+
+  {{ content | safe }}
+</article>

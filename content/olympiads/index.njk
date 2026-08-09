@@ -1,0 +1,51 @@
+---
+title: Наши мероприятия
+layout: layouts/page.njk
+permalink: /olympiads/index.html
+---
+<p>Ниже вы найдёте материалы некоторых олимпиад, к организации которых причастна наша команда.</p>
+
+{% for item in collections.olympiads %}
+  <section class="content-block" id="{{ item.data.slug }}">
+    <h2>{{ item.data.title }}</h2>
+    <p class="summary">{{ item.data.summary }}</p>
+
+    <dl>
+      {% if item.data.grade_min and item.data.grade_max %}<dt>Классы</dt><dd>{{ item.data.grade_min }}–{{ item.data.grade_max }}</dd>{% endif %}
+      {% if item.data.club_role %}<dt>Роль клуба</dt><dd>{{ item.data.club_role }}</dd>{% endif %}
+      {% if item.data.official_url %}<dt>Официальная страница</dt><dd><a href="{{ item.data.official_url }}">Перейти</a></dd>{% endif %}
+    </dl>
+
+    {{ item.content | safe }}
+
+    {% if item.data.editions %}
+      {% set editions = item.data.editions | reverseCopy %}
+      <h3>Проведения</h3>
+      <section class="edition edition-latest">
+        <h4>{% if editions[0].label %}{{ editions[0].label }}{% else %}{{ editions[0].year }}{% endif %}</h4>
+        {% if editions[0].note %}<p>{{ editions[0].note }}</p>{% endif %}
+        {% if editions[0].links %}
+          <ul>
+            {% for link in editions[0].links %}<li><a href="{{ link.url }}">{{ link.label }}</a></li>{% endfor %}
+          </ul>
+        {% endif %}
+      </section>
+      {% if editions.length > 1 %}
+        <details class="edition-archive">
+          <summary>Архив прошлых лет ({{ editions.length - 1 }})</summary>
+          {% for edition in editions | tail %}
+            <section class="edition">
+              <h4>{% if edition.label %}{{ edition.label }}{% else %}{{ edition.year }}{% endif %}</h4>
+              {% if edition.note %}<p>{{ edition.note }}</p>{% endif %}
+              {% if edition.links %}
+                <ul>
+                  {% for link in edition.links %}<li><a href="{{ link.url }}">{{ link.label }}</a></li>{% endfor %}
+                </ul>
+              {% endif %}
+            </section>
+          {% endfor %}
+        </details>
+      {% endif %}
+    {% endif %}
+  </section>
+{% endfor %}

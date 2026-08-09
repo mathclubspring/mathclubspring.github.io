@@ -1,0 +1,29 @@
+---
+title: Календарь
+layout: layouts/page.njk
+permalink: /events/index.html
+---
+{% set calendar = collections.events | calendarView %}
+
+<p>Каждая публикация содержит подборку математических олимпиад, турниров и других мероприятий за один месяц.</p>
+
+{% if calendar.groups.length %}
+  {% for group in calendar.groups %}
+    <section class="calendar-year">
+      <h2>{{ group.year }}</h2>
+      <div class="card-grid">
+        {% for item in group.entries %}
+          <article class="content-card">
+            <h3>{{ item.data.title }}</h3>
+            <p>{{ item.data.summary }}</p>
+            <p>
+              <time datetime="{{ item.data.start_date }}">{{ item.data.start_date | readableDate }}</time>
+              {% if item.data.end_date %} — <time datetime="{{ item.data.end_date }}">{{ item.data.end_date | readableDate }}</time>{% endif %}
+            </p>
+            <p><a href="{{ item.url }}">Открыть месяц</a></p>
+          </article>
+        {% endfor %}
+      </div>
+    </section>
+  {% endfor %}
+{% endif %}

@@ -1,0 +1,21 @@
+---
+title: Программы
+layout: layouts/page.njk
+permalink: /programs/index.html
+---
+<p>Три программы клуба собраны на главной странице. Здесь сохранены прямые ссылки на их отдельные описания.</p>
+
+<div class="card-grid">
+  {% for item in collections.programs %}
+    <article class="content-card">
+      <h2>{{ item.data.title }}</h2>
+      <p>{{ item.data.summary }}</p>
+      <dl class="card-meta">
+        <dt>Классы</dt><dd>{{ item.data.grade_min }}–{{ item.data.grade_max }}</dd>
+        <dt>Формат</dt><dd>{{ item.data.format }}</dd>
+        <dt>Набор</dt><dd>{{ item.data.enrollment_status }}</dd>
+      </dl>
+      <p><a href="{{ item.url }}">Открыть программу</a></p>
+    </article>
+  {% endfor %}
+</div>

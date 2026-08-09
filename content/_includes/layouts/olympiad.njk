@@ -1,0 +1,46 @@
+---
+layout: layouts/base.njk
+---
+<article>
+  <p><a href="/olympiads/">← Наши мероприятия</a></p>
+  <h1>{{ title }}</h1>
+  <p class="summary">{{ summary }}</p>
+
+  <dl>
+    {% if grade_min and grade_max %}<dt>Классы</dt><dd>{{ grade_min }}–{{ grade_max }}</dd>{% endif %}
+    {% if club_role %}<dt>Роль клуба</dt><dd>{{ club_role }}</dd>{% endif %}
+    {% if official_url %}<dt>Официальная страница</dt><dd><a href="{{ official_url }}">Перейти</a></dd>{% endif %}
+  </dl>
+
+  {{ content | safe }}
+
+  {% if editions %}
+    {% set sortedEditions = editions | reverseCopy %}
+    <h2>Проведения</h2>
+    <section class="edition edition-latest">
+      <h3>{% if sortedEditions[0].label %}{{ sortedEditions[0].label }}{% else %}{{ sortedEditions[0].year }}{% endif %}</h3>
+      {% if sortedEditions[0].note %}<p>{{ sortedEditions[0].note }}</p>{% endif %}
+      {% if sortedEditions[0].links %}
+        <ul>
+          {% for link in sortedEditions[0].links %}<li><a href="{{ link.url }}">{{ link.label }}</a></li>{% endfor %}
+        </ul>
+      {% endif %}
+    </section>
+    {% if sortedEditions.length > 1 %}
+      <details class="edition-archive">
+        <summary>Архив прошлых лет ({{ sortedEditions.length - 1 }})</summary>
+        {% for edition in sortedEditions | tail %}
+          <section class="edition">
+            <h3>{% if edition.label %}{{ edition.label }}{% else %}{{ edition.year }}{% endif %}</h3>
+            {% if edition.note %}<p>{{ edition.note }}</p>{% endif %}
+            {% if edition.links %}
+              <ul>
+                {% for link in edition.links %}<li><a href="{{ link.url }}">{{ link.label }}</a></li>{% endfor %}
+              </ul>
+            {% endif %}
+          </section>
+        {% endfor %}
+      </details>
+    {% endif %}
+  {% endif %}
+</article>

@@ -1,0 +1,35 @@
+---
+layout: layouts/base.njk
+---
+<article>
+  <p><a href="/events/">← Календарь</a></p>
+  <h1>{{ title }}</h1>
+  <p class="summary">{{ summary }}</p>
+
+  <dl>
+    <dt>Период</dt>
+    <dd><time datetime="{{ start_date }}">{{ start_date | readableDate }}</time>{% if end_date %} — <time datetime="{{ end_date }}">{{ end_date | readableDate }}</time>{% endif %}</dd>
+  </dl>
+
+  {% set event = content | eventContent %}
+  {% if event.headings.length > 1 %}
+    <nav class="event-toc" aria-label="Оглавление месяца">
+      <h2>В этом месяце</h2>
+      <ol>
+        {% for heading in event.headings %}
+          <li><a href="#{{ heading.id }}">{{ heading.title }}</a></li>
+        {% endfor %}
+      </ol>
+    </nav>
+  {% endif %}
+
+  {{ event.html | safe }}
+
+  {% set adjacent = collections.events | eventNeighbors(page.url) %}
+  {% if adjacent.older or adjacent.newer %}
+    <nav class="adjacent-pages" aria-label="Соседние месяцы">
+      {% if adjacent.older %}<a href="{{ adjacent.older.url }}">← Более ранний: {{ adjacent.older.data.title }}</a>{% endif %}
+      {% if adjacent.newer %}<a href="{{ adjacent.newer.url }}">Более новый: {{ adjacent.newer.data.title }} →</a>{% endif %}
+    </nav>
+  {% endif %}
+</article>
