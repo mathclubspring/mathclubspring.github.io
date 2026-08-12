@@ -29,7 +29,7 @@ place: м. Университет, точный адрес в исходной �
 price: 5000 рублей в месяц для 1–5 классов; 5500 рублей в месяц для 6–8 классов. Оплата по занятиям не предусматривается.
 instructors:
   - name: Иван Сергеевич Коломеец
-registration_url: https://docs.google.com/forms/d/e/1FAIpQLSfkNy73-_pKJ6pR4Tt-YZRV_kAUMacPES3Sl9MZ3WODmXAsuw/viewform
+registration_url: https://docs.google.com/forms/d/e/1FAIpQLScxnL-5g40KMs7pQqrFQulE2YrMHm6LjuCg5pRlDY3mqP55qQ/viewform
 enrollment_status: частично открыт; лист ожидания для 2, 4 и 5 классов
 ---
 
