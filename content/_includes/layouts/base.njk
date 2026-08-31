@@ -1,9 +1,32 @@
 <!doctype html>
 <html lang="ru">
   <head>
+    {% set socialTitle = title or "Математический клуб" %}
+    {% set socialDescription = summary or "Материалы, программы и календарь математического клуба." %}
+    {% set canonicalUrl = "https://mathclubspring.github.io" ~ page.url %}
+    {% set socialImage = "https://mathclubspring.github.io/assets/share/default.png" %}
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>{% if title %}{{ title }} — {% endif %}Математический клуб</title>
+    <meta name="description" content="{{ socialDescription | escape }}">
+    <link rel="canonical" href="{{ canonicalUrl }}">
+
+    <meta property="og:locale" content="ru_RU">
+    <meta property="og:type" content="{% if page.url == "/" %}website{% else %}article{% endif %}">
+    <meta property="og:site_name" content="Математический клуб">
+    <meta property="og:title" content="{{ socialTitle | escape }}">
+    <meta property="og:description" content="{{ socialDescription | escape }}">
+    <meta property="og:url" content="{{ canonicalUrl }}">
+    <meta property="og:image" content="{{ socialImage }}">
+    <meta property="og:image:type" content="image/png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="Математический клуб">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="{{ socialTitle | escape }}">
+    <meta name="twitter:description" content="{{ socialDescription | escape }}">
+    <meta name="twitter:image" content="{{ socialImage }}">
     <link rel="stylesheet" href="/assets/site.css">
   </head>
   <body>
