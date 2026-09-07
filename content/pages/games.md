@@ -7,7 +7,7 @@ permalink: /games/index.html
 published: true
 show_in_nav: true
 ---
-## Три вопроса
+## Прямоугольник из доминошек
 
 Логическая игра о скрытой укладке домино в прямоугольнике 2 × 5. Игрок может задать три вопроса о соседних клетках, отметить предполагаемые границы и проверить расположение всех доминошек.
 
@@ -17,4 +17,4 @@ show_in_nav: true
 
 Задача взята из олимпиады ЮМШ’25.
 
-<p class="primary-action"><a href="https://tri-voprosa-domino.mathclub-spring.chatgpt.site/">Играть в «Три вопроса»</a></p>
+<p class="primary-action"><a href="https://tri-voprosa-domino.mathclub-spring.chatgpt.site/">Играть в «Прямоугольник из доминошек»</a></p>
