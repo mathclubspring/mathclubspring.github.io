@@ -8,8 +8,9 @@ grade_min: 1
 grade_max: 8
 format: очно
 schedule:
-  - group: "1 класс лист ожидания"
+  - group: "1 класс"
     time: "суббота 10:00–10:45"
+    status: "лист ожидания"
   - group: "2 класс лист ожидания"
     time: "суббота 11:00–11:45"
     status: "лист ожидания"
@@ -30,7 +31,7 @@ price: 5250 рублей в месяц для 1–5 классов; 5750 руб�
 instructors:
   - name: Иван Сергеевич Коломеец
 registration_url: https://docs.google.com/forms/d/e/1FAIpQLScxnL-5g40KMs7pQqrFQulE2YrMHm6LjuCg5pRlDY3mqP55qQ/viewform
-enrollment_status: частично открыт; лист ожидания для 2, 4 и 5 классов
+enrollment_status: частично открыт; лист ожидания для 1, 2, 4 и 5 классов
 ---
 
 Приглашаем учеников **1–8 классов** на занятия, которые проходят по субботам на м. Университет.
