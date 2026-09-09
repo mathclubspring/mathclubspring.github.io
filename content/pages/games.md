@@ -18,3 +18,11 @@ show_in_nav: true
 Задача взята из олимпиады ЮМШ’25.
 
 <p class="primary-action"><a href="https://tri-voprosa-domino.mathclub-spring.chatgpt.site/">Играть в «Прямоугольник из доминошек»</a></p>
+
+## Две лёгкие монеты
+
+В коробке 4×4 спрятаны две соседние лёгкие монеты по 9 г, остальные весят по 10 г. Найдите их за три взвешивания.
+
+В игре есть обычный режим и режим «Для храбрых».
+
+<p class="primary-action"><a href="https://dve-legkie-monety.mathclub-spring.chatgpt.site/">Играть в «Две лёгкие монеты»</a></p>
