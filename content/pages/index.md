@@ -33,7 +33,7 @@ show_in_nav: true
 
 Занятия ведёт **Иван Сергеевич Коломеец**.
 
-[Регистрация на очный кружок](https://docs.google.com/forms/d/e/1FAIpQLSfkNy73-_pKJ6pR4Tt-YZRV_kAUMacPES3Sl9MZ3WODmXAsuw/viewform)
+[Регистрация на очный кружок](https://docs.google.com/forms/d/e/1FAIpQLScxnL-5g40KMs7pQqrFQulE2YrMHm6LjuCg5pRlDY3mqP55qQ/viewform?usp=dialog)
 
 ## Онлайн-кружок Математический клуб
 
