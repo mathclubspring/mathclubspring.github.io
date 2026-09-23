@@ -17,7 +17,7 @@ show_in_nav: true
 
 Задача взята из олимпиады ЮМШ’25.
 
-<p class="primary-action"><a href="https://tri-voprosa-domino.mathclub-spring.chatgpt.site/">Играть в «Прямоугольник из доминошек»</a></p>
+<p class="primary-action"><a href="https://mathclub-games.website.yandexcloud.net/domino/">Играть в «Прямоугольник из доминошек»</a></p>
 
 ## Две лёгкие монеты
 
@@ -29,4 +29,4 @@ show_in_nav: true
 
 В игре есть обычный режим и режим «Для храбрых».
 
-<p class="primary-action"><a href="https://dve-legkie-monety.mathclub-spring.chatgpt.site/">Играть в «Две лёгкие монеты»</a></p>
+<p class="primary-action"><a href="https://mathclub-games.website.yandexcloud.net/dve-legkie-monety/">Играть в «Две лёгкие монеты»</a></p>
