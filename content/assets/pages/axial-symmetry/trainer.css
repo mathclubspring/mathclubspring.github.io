@@ -87,15 +87,6 @@
   background: repeating-linear-gradient(135deg, #fff, #fff 4px, #d4dce1 4px, #d4dce1 6px);
 }
 
-.symmetry-cell[data-hint]::after {
-  content: "";
-  position: absolute;
-  inset: 12%;
-  border: 3px dashed #ffbf39;
-  outline: 1px solid #402a00;
-  pointer-events: none;
-}
-
 .symmetry-trainer :is(button, select):focus-visible {
   outline: 3px solid #a33b16;
   outline-offset: 2px;

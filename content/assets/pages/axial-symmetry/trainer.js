@@ -6,15 +6,12 @@ const storageKey = "mathclub:axial-symmetry:v1";
 const modes = {
   add: {
     title: "Добавь одну клетку",
-    hint: "Представь линию сгиба. Где не хватает пары для закрашенной клетки?",
   },
   remove: {
     title: "Убери одну клетку",
-    hint: "Представь линию сгиба. Поищи закрашенную клетку, у которой нет пары.",
   },
   complete: {
     title: "Докрась минимум клеток",
-    hint: "Попробуй разные линии сгиба. Выбери ту, для которой не хватает меньше всего клеток.",
   },
 };
 
@@ -32,7 +29,6 @@ const overlay = $("axes");
 const feedback = $("feedback");
 let index = Math.max(0, tasks.findIndex(({ id }) => id === saved?.task));
 let task, attempt, buttons, focusedCell;
-let hintLevel = 0;
 
 function saveProgress() {
   try {
@@ -80,9 +76,7 @@ function showFeedback(message = "", correct = false) {
 }
 
 function clearFeedback() {
-  hintLevel = 0;
   overlay.replaceChildren();
-  grid.querySelector("[data-hint]")?.removeAttribute("data-hint");
   showFeedback();
 }
 
@@ -206,31 +200,6 @@ function check() {
   showFeedback(messages[status]);
 }
 
-function showHint() {
-  overlay.replaceChildren();
-  grid.querySelector("[data-hint]")?.removeAttribute("data-hint");
-  if (hintLevel++ === 0) {
-    showFeedback(modes[task.mode].hint);
-    return;
-  }
-  const { edits } = attempt;
-  const changes = task.solutions.map((solution) => ({
-    extra: [...edits].filter((cell) => !solution.has(cell)),
-    missing: [...solution].filter((cell) => !edits.has(cell)),
-  }));
-  changes.sort((a, b) => a.extra.length + a.missing.length - b.extra.length - b.missing.length);
-  const { extra, missing } = changes[0];
-  const cell = task.mode === "complete" ? extra[0] ?? missing[0] : missing[0];
-  if (!cell) {
-    showFeedback("Нажми «Проверить», чтобы увидеть результат.");
-    return;
-  }
-  buttons.get(cell).setAttribute("data-hint", "");
-  const [x, y] = point(cell);
-  const action = task.mode === "remove" ? "Убери клетку" : edits.has(cell) ? "Сними закраску" : "Закрась клетку";
-  showFeedback(`${action}: ряд ${y + 1}, столбец ${x + 1}.`);
-}
-
 grid.addEventListener("click", (event) => {
   const { cell } = event.target.dataset;
   if (!cell) return;
@@ -250,7 +219,6 @@ grid.addEventListener("keydown", (event) => {
 });
 
 $("check").addEventListener("click", check);
-$("hint").addEventListener("click", showHint);
 $("undo").addEventListener("click", () => {
   attempt.edits = attempt.undo.pop();
   clearFeedback();
