@@ -1,0 +1,149 @@
+.symmetry-trainer {
+  --sym-ink: #1c3246;
+  --sym-accent: #115b55;
+  --sym-line: #8b9eaa;
+  color: var(--sym-ink);
+  max-width: 44rem;
+}
+
+.symmetry-trainer [hidden] { display: none; }
+
+.symmetry-top {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: .55rem .8rem;
+  margin-bottom: 1rem;
+}
+
+.symmetry-top label { font-weight: 700; }
+.symmetry-top p { margin: 0; }
+
+.symmetry-top select,
+.symmetry-actions button {
+  min-height: 44px;
+  max-width: 100%;
+  padding: .45rem .7rem;
+  border: 1px solid var(--sym-line);
+  border-radius: .5rem;
+  color: inherit;
+  background: white;
+  font: inherit;
+}
+
+.symmetry-actions button { cursor: pointer; }
+.symmetry-actions button:disabled { opacity: .55; cursor: default; }
+
+.symmetry-actions .symmetry-primary {
+  background: var(--sym-accent);
+  border-color: var(--sym-accent);
+  color: white;
+  font-weight: 700;
+}
+
+.symmetry-play {
+  border: 1px solid #cbd7db;
+  border-radius: .9rem;
+  background: #f5faf9;
+  padding: clamp(.45rem, 2.4vw, 1.3rem);
+}
+
+.symmetry-play h2 { margin: 0 0 .4rem; font-size: 1.4rem; }
+.symmetry-play p { margin: 0 0 .75rem; }
+.symmetry-play .symmetry-note { font-size: .9rem; }
+#symmetry-count { font-weight: 600; }
+
+.symmetry-field {
+  position: relative;
+  width: min(100%, calc(var(--sym-columns) * 42px));
+  margin: 1rem auto;
+  outline: 1px solid var(--sym-line);
+}
+
+.symmetry-grid {
+  display: grid;
+  grid-template-columns: repeat(var(--sym-columns), minmax(0, 1fr));
+  touch-action: manipulation;
+}
+
+.symmetry-cell {
+  display: block;
+  appearance: none;
+  position: relative;
+  min-width: 0;
+  aspect-ratio: 1;
+  padding: 0;
+  border: 0;
+  border-right: 1px solid var(--sym-line);
+  border-bottom: 1px solid var(--sym-line);
+  border-radius: 0;
+  background: #fff;
+  cursor: pointer;
+}
+
+.symmetry-cell[data-fill="original"] { background: #455d72; }
+.symmetry-cell[data-fill="added"] { background: #148375; }
+.symmetry-cell[data-fill="removed"] {
+  background: repeating-linear-gradient(135deg, #fff, #fff 4px, #d4dce1 4px, #d4dce1 6px);
+}
+
+.symmetry-cell[data-hint]::after {
+  content: "";
+  position: absolute;
+  inset: 12%;
+  border: 3px dashed #ffbf39;
+  outline: 1px solid #402a00;
+  pointer-events: none;
+}
+
+.symmetry-trainer :is(button, select):focus-visible {
+  outline: 3px solid #a33b16;
+  outline-offset: 2px;
+}
+.symmetry-grid .symmetry-cell:focus-visible {
+  outline-offset: -4px;
+  box-shadow: inset 0 0 0 5px white;
+  z-index: 1;
+}
+
+.symmetry-axes {
+  position: absolute;
+  z-index: 2;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.symmetry-axes line {
+  vector-effect: non-scaling-stroke;
+  stroke: #8c290e;
+  stroke-width: 3px;
+  stroke-dasharray: 7px 4px;
+  filter: drop-shadow(0 0 1px white) drop-shadow(0 0 1px white);
+}
+
+.symmetry-actions { display: flex; flex-wrap: wrap; gap: .5rem; }
+.symmetry-navigation { margin-top: .85rem; }
+#symmetry-feedback { margin: .65rem 0 0; min-height: 1.5em; }
+#symmetry-feedback[data-correct] { color: var(--sym-accent); font-weight: 700; }
+
+.symmetry-sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+@media (forced-colors: active) {
+  .symmetry-cell[data-fill="original"],
+  .symmetry-cell[data-fill="added"] {
+    forced-color-adjust: none;
+    background: Highlight;
+    border-color: Canvas;
+  }
+  .symmetry-cell[data-fill="removed"] { border: 2px dashed ButtonText; }
+  .symmetry-axes line { stroke: CanvasText; }
+}

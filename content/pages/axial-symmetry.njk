@@ -1,0 +1,46 @@
+---
+title: Осевая симметрия
+summary: Клетчатый тренажёр для 2 класса
+layout: layouts/page.njk
+permalink: /games/axial-symmetry/index.html
+published: true
+---
+<link rel="stylesheet" href="/assets/pages/axial-symmetry/trainer.css">
+<div class="symmetry-trainer" id="symmetry-trainer" hidden>
+  <div class="symmetry-top">
+    <label for="symmetry-task">Выбери задание</label>
+    <select id="symmetry-task"></select>
+    <p id="symmetry-progress"></p>
+  </div>
+  <div class="symmetry-play">
+    <div>
+      <h2 id="symmetry-title"></h2>
+      <p id="symmetry-instruction"></p>
+      <p id="symmetry-note" class="symmetry-note" hidden>
+        В листке указана одна ось. У связной фигуры, которая получается после удаления нужной клетки, две оси.
+      </p>
+      <p id="symmetry-count"></p>
+    </div>
+    <div id="symmetry-field" class="symmetry-field">
+      <div id="symmetry-grid" class="symmetry-grid" role="group"
+        aria-label="Клетчатое поле" aria-describedby="symmetry-keys"></div>
+      <svg id="symmetry-axes" class="symmetry-axes" aria-hidden="true"></svg>
+    </div>
+    <p id="symmetry-keys" class="symmetry-sr-only">
+      Стрелки перемещают по полю. Пробел или Enter меняет выбранную клетку.
+    </p>
+    <div class="symmetry-actions">
+      <button type="button" id="symmetry-check" class="symmetry-primary">Проверить</button>
+      <button type="button" id="symmetry-hint">Подсказка</button>
+      <button type="button" id="symmetry-undo">Отменить</button>
+      <button type="button" id="symmetry-reset">Сбросить</button>
+    </div>
+    <p id="symmetry-feedback" role="status" aria-atomic="true"></p>
+  </div>
+  <div class="symmetry-actions symmetry-navigation">
+    <button type="button" id="symmetry-prev">← Предыдущая</button>
+    <button type="button" id="symmetry-next">Следующая →</button>
+  </div>
+</div>
+<noscript><p>Включи JavaScript в браузере, чтобы открыть тренажёр.</p></noscript>
+<script type="module" src="/assets/pages/axial-symmetry/trainer.js"></script>

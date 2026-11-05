@@ -30,3 +30,9 @@ show_in_nav: true
 В игре есть обычный режим и режим «Для храбрых».
 
 <p class="primary-action"><a href="https://mathclub-games.website.yandexcloud.net/dve-legkie-monety/">Играть в «Две лёгкие монеты»</a></p>
+
+## Осевая симметрия
+
+Добавляй и убирай клетки, чтобы у фигуры появились оси симметрии. 18 заданий для 2 класса.
+
+<p class="primary-action"><a href="/games/axial-symmetry/">Открыть тренажёр «Осевая симметрия»</a></p>
