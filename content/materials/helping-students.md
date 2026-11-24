@@ -4,7 +4,7 @@ slug: helping-students
 summary: Памятка для преподавателей и ассистентов о том, как помогать ученику, сохраняя его самостоятельность.
 layout: layouts/material.njk
 permalink: /materials/helping-students/index.html
-section: Методика
+section: Полезные тексты
 tags:
   - методика
   - преподавателям
